@@ -1,0 +1,32 @@
+<!--<section class="h-100 h-custom" style="background-color: #eee;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card">
+-->
+      <div class="d-flex flex-row d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-start align-items-center"[formGroup]="categoryFilter" >
+          <label class="form-label p-3">Catégorie </label>
+
+          <select  class="form-select category" formControlName="filter" aria-label="Default select example" >
+            <option [value]="ALL">All</option>
+            <option *ngFor="let option of categories$ | async" [value]="option">{{option}}</option>
+          </select>
+        </div>
+
+        <button type="button" class="btn btn-primary  d-flex align-items-center" (click)="RedirectToShoppingCart()">
+          Panier
+          <span class="badge badge-info">3</span>
+        </button>
+        </div>
+          <div class="row">
+            <div class=" col-sm-12 col-lg-4 p-2" *ngFor="let item of  filtredProducts$|async">
+                <app-product [productElement]="item" (addElement)="addElementToCart($event)" ></app-product>
+              </div>
+        </div>
+       <!-- </div>
+      </div>
+    </div>
+  </div>
+  </section>
+-->

@@ -1,0 +1,31 @@
+<div class="card card-element ">
+  <div class="card-body">
+    <h5 class="card-title">{{productElement.productName}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{productElement.category}}</h6>
+    <h6 class="card-text"  >price : <span [appCalculTtc]="{product : productElement,tax: getProductTaxRate(), quantity: form.controls.quantity.value}" #priceTTC></span></h6>
+  </div>
+  <div class="card-footer">
+    <div class="d-flex flex-row justify-content-between ">
+      <ng-container *ngIf="productElement.quantity>0 ; else noElement " >
+        <div class="d-flex flex-row" [formGroup]="form" >
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend" >
+              <button class="input-group-text" [disabled]="form.controls.quantity.value === 1" (click)="updateQuantity(operationType.REMOVE)">-</button>
+            </div>
+
+            <input type="text" class="form-control" formControlName="quantity"   placeholder="Qte">
+            <div class="input-group-append" >
+              <button class="input-group-text" [disabled]="form.controls.quantity.value === productElement.quantity" (click)="updateQuantity(operationType.ADD)">+</button>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-template #noElement>
+        <span >Non disponible</span>
+      </ng-template>
+
+      <button class="btn btn-primary add ms-2" [disabled]="productElement.quantity==0 || form.invalid" (click)="addToCart(priceTTC)"> Ajouter</button>
+    </div>
+  </div>
+</div>

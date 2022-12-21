@@ -1,0 +1,16 @@
+.card-element{
+  height: 100%;
+  max-height:20rem ;
+  max-width:18rem ;
+
+}
+button:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
+}
+.disabled {
+
+  opacity:0.5;
+}
+
+.add {height: 40px;}
