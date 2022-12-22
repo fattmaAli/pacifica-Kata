@@ -39,7 +39,9 @@ States can be found under `store` repository of the `shared` repository.
 
 ![image](https://user-images.githubusercontent.com/17089273/209131510-f9bd2ada-fd9c-4463-b8ef-ed2827d39c5b.png)  
 
-NB: to use `NGXS` you have to install `@ngxs/store` by `npm install @ngxs/store --save`.  
+NB: to use `NGXS` you have to install `@ngxs/store` by `npm install @ngxs/store --save`. 
+
+For more help check out this [NGXS](https://www.ngxs.io/getting-started/why) page
 
 ## Further help
 
