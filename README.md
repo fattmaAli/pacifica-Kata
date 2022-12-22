@@ -14,14 +14,35 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Mock mode
+With a mock API , you can start developing without waiting for the backend team. you start writing your Angular Application, plug it to a mock API then switch to the real backend when it's ready.This can help you design the potential shapes of the server's responses in collaboration with the backend team.  
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Both prod and mock are implemented in this project but only the mock is functional. 
+  
+We create an `environment` directory which contains configuration files for both modes. each file specify which service we're going to use knowing that we implement specific service for the specific mode( in our case for the http and api url  services).  
+  
+The configuration of the switching between modes is done in `angular.json` file to tell which environment we're going to use when serving the app.
+  
+ ![image](https://user-images.githubusercontent.com/17089273/209127737-abfda319-837d-40e0-b1c6-7f0cdc7a8f4f.png)
+  
+The default envioronment is `environment.ts`. so we will not need to make a file replacement or add an option to the `ng serve` command.  
+In this project `ng serve` is runned for the Mock mode. 
 
-## Running end-to-end tests
+## Naming
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Every obsevable name will be followed by `$` to distinguish them from other variables.
+
+## Store
+
+In this project we are using the design pattern `NGXS`, which will manage all states of the application.  
+States can be found under `store` repository of the `shared` repository.  
+
+![image](https://user-images.githubusercontent.com/17089273/209131510-f9bd2ada-fd9c-4463-b8ef-ed2827d39c5b.png)  
+
+NB: to use `NGXS` you have to install `@ngxs/store` by `npm install @ngxs/store --save`.  
 
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
