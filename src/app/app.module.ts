@@ -41,10 +41,4 @@ import {PanierState} from "@store/panier/panier.sate";
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  // constructor(private store: Store) {
-  // }
-  // ngDoBootstrap(appRef: ApplicationRef): void {
-  //   this.store.dispatch(new GetAllProducts());
-  //   appRef.bootstrap(AppComponent)
-  // }
 }
