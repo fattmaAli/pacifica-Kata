@@ -2,7 +2,7 @@
   <div class="card-body">
     <h5 class="card-title">{{productElement.productName}}</h5>
     <h6 class="card-subtitle mb-2 text-muted">{{productElement.category}}</h6>
-    <h6 class="card-text"  >price : <span [appCalculTtc]="{product : productElement,tax: getProductTaxRate(), quantity: form.controls.quantity.value}" #priceTTC></span></h6>
+    <h6 class="card-text"  >price : <span [appCalculTtc]="{product : productElement,tax: getProductTaxRate(), quantity: form.controls.quantity.value}" #priceTTC> </span>€</h6>
   </div>
   <div class="card-footer">
     <div class="d-flex flex-row justify-content-between ">

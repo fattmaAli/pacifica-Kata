@@ -18,10 +18,11 @@ import {
 import {Router} from "@angular/router";
 import {RouterPaths} from "@router/router.model";
 import {PurchasedProduct} from "@models/purchased-product.model";
-import {AddElementToCart} from "@store/panier/panier.actions";
+import {AddElementToCart, Totals} from "@store/panier/panier.actions";
 import {CategoryType} from "../../shared/enumeration/category-type.enum";
 import {FormControl, FormGroup} from "@angular/forms";
 import {map} from "rxjs/operators";
+import {PanierState} from "@store/panier/panier.sate";
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -31,6 +32,9 @@ export class ProductsComponent implements OnInit {
 
   @Select(ProductsState.products)
   allProducts$: Observable<Product[]>;
+
+  @Select(PanierState.purchasedElementsNumber)
+  purchasedElementsNumber$: Observable<number>;
   filtredProducts$: Observable<Product[]>;
   categories$ = of(Object.entries(CategoryType).map((elem)=> elem[1]));
   readonly ALL = "All";
@@ -51,6 +55,7 @@ ngOnInit(){
   )
 }
   RedirectToShoppingCart(){
+    this.store.dispatch(new Totals())
     this.router.navigateByUrl(RouterPaths.SHOPPINGCART)
   }
 

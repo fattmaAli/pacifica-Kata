@@ -28,8 +28,9 @@ export class ProductComponent implements OnInit{
    return this.productsService.getProductTaxRate(this.productElement);
   }
   addToCart(priceTTC) {
+    console.log()
     if(this.form.valid){
-      this.addElement.emit({productId: this.productElement.id, quantity: this.form.controls.quantity.value ,priceTtc: parseFloat(priceTTC.innerHTML) })
+      this.addElement.emit({productId: this.productElement.id, quantity: this.form.controls.quantity.value ,priceTtc: parseFloat(priceTTC.innerHTML)})
     }
   }
   updateQuantity(operationType){

@@ -10,46 +10,19 @@
 
                 <div class="col-lg-7">
                   <h5 class="mb-3"><a [routerLink]="['/products']" class="text-body"><i
-                    class="bi bi-arrow-left me-2"></i>Continue shopping</a></h5>
+                    class="bi bi-arrow-left me-2"></i>Continuer votre shopping</a></h5>
                   <hr>
 
                   <div class="d-flex justify-content-between align-items-center mb-4">
                     <div>
-                      <p class="mb-1">Shopping cart</p>
-                      <p class="mb-0">You have {{4}} items in your cart</p>
-                    </div>
-
-                  </div>
-//item
-                  <div class="card mb-3">
-                    <div class="card-body">
-                      <div class="d-flex justify-content-between">
-                        <div class="d-flex flex-row align-items-center">
-
-                          <div class="ms-1">
-                            <h5>Product Name</h5>
-                            <p class="small mb-0">qte</p>
-                          </div>
-                        </div>
-                        <div class="d-flex flex-row align-items-center">
-                          <div style="width: 50px;">
-                            <h5 class="fw-normal mb-0">taxes</h5>
-                          </div>
-                          <div style="width: 80px;">
-                            <h5 class="mb-0">HT</h5>
-                          </div>
-                          <div style="width: 80px;">
-                          <h5 class="mb-0">TTC</h5>
-                        </div>
-                          <a href="#!" style="color: #cecece;"><i class="bi bi-trash3"></i></a>
-                        </div>
-                      </div>
+                      <p class="mb-1">Panier</p>
+                      <p class="mb-0"> {{(purchasedElementsNumber$|async) > 0? "vous avez "+(purchasedElementsNumber$|async)+" articles dans votre panier": "Votre Panier est vide"}} </p>
                     </div>
                   </div>
-//fin
-
-
-                </div>
+                   <div *ngFor="let item of purchasedElements$ | async">
+                    <app-panier-element [panierElement]="item"> </app-panier-element>
+                   </div>
+                    </div>
                 <div class="col-lg-5   my-auto">
 
                   <div class="card bg-primary text-white rounded-3 card-block ">
@@ -58,13 +31,11 @@
 
                       <div class="d-flex justify-content-between">
                         <p class="mb-2">Total taxes</p>
-                        <p class="mb-2">0000</p>
+                        <p class="mb-2">{{((totalTaxes$ | async )? ( totalTaxes$ | async ):0.00 ) | currency:'EUR'}}</p>
                       </div>
-
-
                       <div class="d-flex justify-content-between mb-4">
                         <p class="mb-2">Total TTC</p>
-                        <p class="mb-2">0000</p>
+                        <p class="mb-2">{{((totalTTC$ | async )? ( totalTTC$ | async ):0.00 ) | currency:'EUR'}} </p>
                       </div>
 
                     </div>

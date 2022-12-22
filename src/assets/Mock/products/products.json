@@ -1,9 +1,9 @@
 
 {"data":[
-   
+
     {
       "id": 1,
-      "productName": "",
+      "productName": "Twix",
       "price": 1.76,
       "quantity": 7,
       "isImported": true,
@@ -65,7 +65,7 @@
       "isImported": false,
       "category": "Food"
     },
-   
+
     {
       "id": 12,
       "productName": "codeine",
@@ -90,7 +90,7 @@
       "isImported": true,
       "category": "Medecine"
     },
-   
+
     {
       "id": 3,
       "productName": "The Stranger in the Lifeboat",
@@ -123,7 +123,7 @@
       "isImported": false,
       "category": "Books"
     },
-    
+
     {
       "id": 16,
       "productName": "USB Flash Drive 64GB",
@@ -140,7 +140,7 @@
       "isImported": false,
       "category": "Electric"
     },
-    
+
     {
       "id": 4,
       "productName": "Dior sauvage 100ml",

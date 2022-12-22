@@ -16,7 +16,7 @@
 
         <button type="button" class="btn btn-primary  d-flex align-items-center" (click)="RedirectToShoppingCart()">
           Panier
-          <span class="badge badge-info">3</span>
+          <span class="badge badge-info">{{(purchasedElementsNumber$|async)>0 ? (purchasedElementsNumber$|async) : ""}}</span>
         </button>
         </div>
           <div class="row">
