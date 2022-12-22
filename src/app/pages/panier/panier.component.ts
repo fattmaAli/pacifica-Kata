@@ -4,13 +4,15 @@ import {Select, Store} from "@ngxs/store";
 import {Observable} from "rxjs";
 import {PanierElement} from "@models/Panier-element.model";
 import {PanierState} from "@store/panier/panier.sate";
+import {Router} from "@angular/router";
+
 @Component({
   selector: 'app-panier',
   templateUrl: './panier.component.html',
   styleUrls: ['./panier.component.css']
 })
 export class PanierComponent {
-  routerPaths:RouterPaths
+  routerPaths: RouterPaths
   @Select(PanierState.purchasedElements)
   purchasedElements$: Observable<PanierElement[]>;
   @Select(PanierState.purchasedElementsNumber)
@@ -20,8 +22,11 @@ export class PanierComponent {
   @Select(PanierState.totalTTC)
   totalTTC$: Observable<number>;
 
-constructor() {
+  constructor(private router: Router) {
 
-}
+  }
 
+  returnToProducts() {
+    this.router.navigateByUrl(RouterPaths.PRODUCTS)
+  }
 }

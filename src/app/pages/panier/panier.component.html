@@ -1,59 +1,55 @@
-<ng-container>
-  <section class="h-100 h-custom">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col">
-          <div class="card">
-            <div class="card-body p-4">
+<section class="h-100 " style="background-color: white;">
+  <div class="  h-100">
 
-              <div class="row">
+    <div class="row  d-flex justify-content-center align-items-center h-100">
 
-                <div class="col-lg-7">
-                  <h5 class="mb-3"><a [routerLink]="['/products']" class="text-body"><i
-                    class="bi bi-arrow-left me-2"></i>Continuer votre shopping</a></h5>
-                  <hr>
-
-                  <div class="d-flex justify-content-between align-items-center mb-4">
-                    <div>
-                      <p class="mb-1">Panier</p>
-                      <p class="mb-0"> {{(purchasedElementsNumber$|async) > 0? "vous avez "+(purchasedElementsNumber$|async)+" articles dans votre panier": "Votre Panier est vide"}} </p>
-                    </div>
+      <div class="col-12">
+        <button class="btn btn-outline-secondary mb-2 ml-3 pr-3 pl-3 btnToProducts" (click)="returnToProducts()">
+          <i class="bi bi-arrow-left me-2"> continuer vos achats</i>
+        </button>
+        <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+          <div class="card-body p-0">
+            <div class="row g-0">
+              <div class="col-lg-8">
+                <div class="p-5">
+                  <div class="d-flex justify-content-between align-items-center mb-5">
+                    <h1 class="fw-bold mb-0 text-black">Panier</h1>
+                    <h6
+                      class="mb-0 text-muted">{{(purchasedElementsNumber$|async) > 0 ? (purchasedElementsNumber$|async) + "items" : ""}}</h6>
                   </div>
-                   <div *ngFor="let item of purchasedElements$ | async">
-                    <app-panier-element [panierElement]="item"> </app-panier-element>
-                   </div>
-                    </div>
-                <div class="col-lg-5   my-auto">
 
-                  <div class="card bg-primary text-white rounded-3 card-block ">
+                  <hr class="my-4">
 
-                    <div class="card-body">
+                  <h6 class="mb-0 "> {{(purchasedElementsNumber$|async) > 0 ? "" : "Votre panier est vide"}}</h6>
 
-                      <div class="d-flex justify-content-between">
-                        <p class="mb-2">Total taxes</p>
-                        <p class="mb-2">{{((totalTaxes$ | async )? ( totalTaxes$ | async ):0.00 ) | currency:'EUR'}}</p>
-                      </div>
-                      <div class="d-flex justify-content-between mb-4">
-                        <p class="mb-2">Total TTC</p>
-                        <p class="mb-2">{{((totalTTC$ | async )? ( totalTTC$ | async ):0.00 ) | currency:'EUR'}} </p>
-                      </div>
+                  <div *ngFor="let item of purchasedElements$ | async">
+                    <app-panier-element [panierElement]="item"></app-panier-element>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 bg-grey">
+                <div class=" summary p-5">
+                  <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
+                  <hr class="my-4">
 
-                    </div>
+                  <div class="d-flex justify-content-between mb-4">
+                    <h5 class="text-uppercase">Total Taxes </h5>
+                    <h5>{{((totalTaxes$ | async) ? (totalTaxes$ | async) : 0.00) | currency:'EUR'}} </h5>
+                  </div>
+
+                  <hr class="my-4">
+
+                  <div class="d-flex justify-content-between mb-5">
+                    <h5 class="text-uppercase">Total TTC</h5>
+                    <h5>{{((totalTTC$ | async) ? (totalTTC$ | async) : 0.00) | currency:'EUR'}}</h5>
                   </div>
 
                 </div>
-
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-</ng-container>
-<ng-template>
-  <div class="col-4 p-2" >
-  <app-panier-element ></app-panier-element>
-</div>
-</ng-template>
-
+  </div>
+</section>

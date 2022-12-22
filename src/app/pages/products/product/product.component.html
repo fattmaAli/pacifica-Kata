@@ -1,23 +1,32 @@
-<div class="card card-element ">
+<div class="card card-element-lg mx-auto d-flex justify-content-around  ">
   <div class="card-body">
-    <h5 class="card-title">{{productElement.productName}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{productElement.category}}</h6>
-    <h6 class="card-text"  >price : <span [appCalculTtc]="{product : productElement,tax: getProductTaxRate(), quantity: form.controls.quantity.value}" #priceTTC> </span>€</h6>
+    <h5 class=" card-title  mb-2">{{productElement.productName}}</h5>
+    <br>
+   <span class="card-text">
+         <table>
+          <tbody>
+          <tr>
+            <td> <span class="text-muted">Categorie:</span></td>
+            <td> <span class="text-dark m-lg-2  m-sm-2 catsi">{{productElement.category}}</span></td>
+          </tr>
+          <tr>
+            <td> <span class="text-muted">Prix:</span></td>
+            <td class="price"> <span class=" m-lg-2  m-sm-2 " [appCalculTtc]="{product : productElement,tax: getProductTaxRate(), quantity: form.controls.quantity.value}" #priceTTC> </span> €</td>
+          </tr>
+          </tbody>
+         </table>
+        </span>
+
   </div>
-  <div class="card-footer">
-    <div class="d-flex flex-row justify-content-between ">
+  <br>
+  <div class="m-2">
+    <div class="d-flex flex-row justify-content-between  align-items-center">
       <ng-container *ngIf="productElement.quantity>0 ; else noElement " >
-        <div class="d-flex flex-row" [formGroup]="form" >
-
-          <div class="input-group mb-3">
-            <div class="input-group-prepend" >
-              <button class="input-group-text" [disabled]="form.controls.quantity.value === 1" (click)="updateQuantity(operationType.REMOVE)">-</button>
-            </div>
-
-            <input type="text" class="form-control" formControlName="quantity"   placeholder="Qte">
-            <div class="input-group-append" >
-              <button class="input-group-text" [disabled]="form.controls.quantity.value === productElement.quantity" (click)="updateQuantity(operationType.ADD)">+</button>
-            </div>
+        <div class="d-flex flex-row addnum justify-content-between  align-items-center " [formGroup]="form" >
+          <div class="input-group  ">
+            <button type="button" class="btn btn-outline-secondary" [disabled]="form.controls.quantity.value === 1" (click)="updateQuantity(operationType.REMOVE)">-</button>
+            <input type="text" class="form-control" formControlName="quantity"  />
+            <button type="button" class="btn btn-outline-secondary" [disabled]="form.controls.quantity.value === productElement.quantity" (click)="updateQuantity(operationType.ADD)">+</button>
           </div>
         </div>
       </ng-container>
@@ -25,7 +34,61 @@
         <span >Non disponible</span>
       </ng-template>
 
-      <button class="btn btn-primary add ms-2" [disabled]="productElement.quantity==0 || form.invalid" (click)="addToCart(priceTTC)"> Ajouter</button>
+      <button class="btn shadow  addbtn ms-2" style="border-radius: 50px !important;" type="button"
+               [disabled]="productElement.quantity==0 || form.invalid" (click)="addToCart(priceTTC)"> Ajouter</button>
     </div>
   </div>
 </div>
+
+<!--<div class="card card-element ">
+
+      <div class="card-body">
+        <h5 class="card-title">{{productElement.productName}}</h5>
+        <span class="card-text">
+         <table>
+          <tbody>
+          <tr>
+            <td> <span class="text-muted">Categorie:</span></td>
+            <td> <span class="text-dark pl-1 catsi">{{productElement.category}}</span></td>
+          </tr>
+          <tr>
+            <td> <span class="text-muted">Prix:</span></td>
+            <td> <span class="price pl-1" [appCalculTtc]="{product : productElement,tax: getProductTaxRate(), quantity: form.controls.quantity.value}" #priceTTC>€</span>
+          </tr>
+          </tbody>
+         </table>
+        </span>
+      </div>
+      <label></label>
+
+      <div class="p-1" style="background-color: white !important;">
+        <ng-container *ngIf="productElement.quantity>0 ; else noElement " >
+        <label for="basic-url" class="form-label">Quantité: </label>
+        <div class="d-flex justify-content-between">
+
+          <div class="input-group inputinc w-25 justify-content-end align-items-center">
+
+            <button type="button" class="btn btn-outline-secondary" data-action="decrement"
+                    data-target="#input-1">-</button>
+            <input type="text" class="form-control" id="input-1" value="1" />
+            <button type="button" class="btn btn-outline-secondary" data-action="increment"
+                    data-target="#input-1">+</button>
+          </div>
+          <div>
+            <button [disabled]="productElement.quantity==0 || form.invalid" (click)="addToCart(priceTTC)" style="border-radius: 50px !important;" type="button"
+                    class="shadow btn btn-success btn-lg">Ajouter
+            </button>
+          </div>
+        </div>
+        </ng-container>
+        <ng-template #noElement>
+        <i style="color: red;"><i class="fa fa-times-circle" aria-hidden="true"></i>
+          <b>Non disponible</b> </i>
+        </ng-template>
+      </div>
+
+</div>-->
+
+
+
+

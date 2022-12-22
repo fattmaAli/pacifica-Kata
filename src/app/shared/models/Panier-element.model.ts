@@ -1,8 +1,8 @@
-export interface PanierElement{
+export interface PanierElement {
   quantity: number,
-  taxes:number,
-  priceHT:number,
-  priceTTC:number,
-  productId:number,
+  taxes: number,
+  priceHT: number,
+  priceTTC: number,
+  productId: number,
 
 }

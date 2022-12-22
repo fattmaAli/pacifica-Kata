@@ -11,28 +11,32 @@ import {Product} from "@models/product.model";
   templateUrl: './panier-element.component.html',
   styleUrls: ['./panier-element.component.css']
 })
-export class PanierElementComponent implements OnInit, OnDestroy{
-@Input() panierElement: PanierElement;
-destroyer$ = new Subject();
+export class PanierElementComponent implements OnInit, OnDestroy {
+  @Input() panierElement: PanierElement;
+  destroyer$ = new Subject();
 
-@Select(ProductsState.products)
-allProducts$: Observable<Product[]>;
+  @Select(ProductsState.products)
+  allProducts$: Observable<Product[]>;
 
-panierElementProduct:Product= undefined;
-constructor(private store:Store){}
-  ngOnInit() {
-  this.allProducts$.pipe(takeUntil(this.destroyer$),tap((list:Product[])=>{
-    this.panierElementProduct=list.find((value:Product ) => value.id === this.panierElement.productId)
+  panierElementProduct: Product = undefined;
 
-  })).subscribe();
+  constructor(private store: Store) {
   }
-ngOnDestroy() {
-  this.destroyer$.next("");
-  this.destroyer$.complete();
-}
 
-  RemoveElementFromCart(){
-    this.store.dispatch (new RemoveElementFromCart(this.panierElement.productId))
+  ngOnInit() {
+    this.allProducts$.pipe(takeUntil(this.destroyer$), tap((list: Product[]) => {
+      this.panierElementProduct = list.find((value: Product) => value.id === this.panierElement.productId)
+
+    })).subscribe();
+  }
+
+  ngOnDestroy() {
+    this.destroyer$.next("");
+    this.destroyer$.complete();
+  }
+
+  RemoveElementFromCart() {
+    this.store.dispatch(new RemoveElementFromCart(this.panierElement.productId))
     this.store.dispatch(new Totals())
 
   }

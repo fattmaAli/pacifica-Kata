@@ -1,4 +1,4 @@
-import { InjectionToken } from "@angular/core";
+import {InjectionToken} from "@angular/core";
 
 export const API_URL_SERVICE_IMPL: InjectionToken<ApiUrlService> = new InjectionToken(
   "API_URL_SERVICE_IMPL"
@@ -6,5 +6,6 @@ export const API_URL_SERVICE_IMPL: InjectionToken<ApiUrlService> = new Injection
 
 export interface ApiUrlService {
   apiBase(): string;
-  productApi():string
+
+  productApi(): string
 }

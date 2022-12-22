@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
   name: 'roundTaxAmount'
@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class RoundTaxAmountPipe implements PipeTransform {
 
   transform(value: number): number {
-    return +(Math.ceil(value * 20) / 20 ).toFixed(2);
+    return +(Math.ceil(value * 20) / 20).toFixed(2);
   }
 
 }

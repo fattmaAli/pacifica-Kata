@@ -12,5 +12,70 @@ button:disabled {
 
   opacity:0.5;
 }
+h5{
+  color: #008991;
+  font-family: 'DINPro-CondBlack', 'Helvetica Neue', Helvetica, sans-serif, bold;
+}
+.addbtn {
+  height: 40px;
+  color:rgb(226, 26, 122);
+  border: 1px solid rgb(226, 26, 122);
+  background-color: rgb(255, 255, 255);
 
-.add {height: 40px;}
+}
+.addbtn:hover{
+  background-color:rgb(226, 26, 122);
+  color:rgb(255, 255, 255)
+}
+.addnum{width: 50%;}
+
+
+.form-inputs i {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+}
+
+
+
+.qty {
+  font-size: 12px;
+}
+.textcol {
+  color: #1c2e80 !important;
+  display: inline-block !important;
+}
+
+
+.currency {
+  font-weight: bold;
+  color: red;
+  font-size: 0.6em;
+  vertical-align: text-top;
+}
+
+.price {
+  font-family: 'DINPro-CondMedium', 'Helvetica Neue', Helvetica;
+  color: #e21a7a !important;
+  font-size: 1em;
+}
+
+.divider {
+  padding-top: 3rem !important;
+}
+
+.catsi {
+  font-size: 1em !important;
+}
+
+@media screen and (max-width: 700px) {
+  .notification {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .inputinc {
+    width: 40% !important;
+  }
+}

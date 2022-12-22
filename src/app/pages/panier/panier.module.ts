@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { PanierRoutingModule } from './panier-routing.module';
-import { PanierComponent } from './panier.component';
-import { PanierElementComponent } from './panier-element/panier-element.component';
+import {PanierRoutingModule} from './panier-routing.module';
+import {PanierComponent} from './panier.component';
+import {PanierElementComponent} from './panier-element/panier-element.component';
 
 
 @NgModule({
@@ -16,4 +16,5 @@ import { PanierElementComponent } from './panier-element/panier-element.componen
     PanierRoutingModule
   ]
 })
-export class PanierModule { }
+export class PanierModule {
+}

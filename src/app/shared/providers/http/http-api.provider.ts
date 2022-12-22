@@ -1,6 +1,6 @@
-import { InjectionToken } from "@angular/core";
-import { Observable } from "rxjs";
-import { HttpResponse } from "@angular/common/http";
+import {InjectionToken} from "@angular/core";
+import {Observable} from "rxjs";
+import {HttpResponse} from "@angular/common/http";
 
 export const HTTP_API_PROVIDER_IMPL: InjectionToken<HttpApiProvider> = new InjectionToken(
   "HTTP_API_PROVIDER_IMPL"
@@ -19,11 +19,13 @@ export interface HttpApiProvider {
     dto: T,
     toModelFn: (response: U) => R
   ): Observable<R>;
+
   sendDownloadCommand<T, R>(
     url: string,
     commandDto: T,
     toModelFn?: (response: HttpResponse<Blob>) => R
   ): Observable<any>;
+
   sendCommandNoArg<R>(url: string): Observable<R>;
 
   create<T, U, R>(

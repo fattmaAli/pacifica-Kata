@@ -38,9 +38,9 @@ import {PanierState} from "@store/panier/panier.sate";
     }
 
   ],
-  bootstrap:[AppComponent]
+  bootstrap: [AppComponent]
 })
-export class AppModule  {
+export class AppModule {
   // constructor(private store: Store) {
   // }
   // ngDoBootstrap(appRef: ApplicationRef): void {

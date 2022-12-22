@@ -1,16 +1,17 @@
-import { HttpClient, HttpResponse } from "@angular/common/http";
-import { Observable, of, throwError } from "rxjs";
-import { Injectable } from "@angular/core";
-import { map, pluck, tap } from "rxjs/operators";
-import { HttpApiProvider } from "./http-api.provider";
-import { ResponseDto } from "../../dto/response.dto";
+import {HttpClient, HttpResponse} from "@angular/common/http";
+import {Observable, of, throwError} from "rxjs";
+import {Injectable} from "@angular/core";
+import {map, pluck, tap} from "rxjs/operators";
+import {HttpApiProvider} from "./http-api.provider";
+import {ResponseDto} from "../../dto/response.dto";
 
 @Injectable()
 export class HttpApiMockProvider implements HttpApiProvider {
   /** "data" property name in response DTO*/
   private DATA_PROPERTY: string = "data";
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {
+  }
 
   /**
    * Send a command to the backend in order to request for an action.
@@ -26,6 +27,7 @@ export class HttpApiMockProvider implements HttpApiProvider {
   ): Observable<R> {
     return this.get(url, toModelFn);
   }
+
   sendDownloadCommand<T, R>(
     url: string,
     commandDto: T,
@@ -33,9 +35,11 @@ export class HttpApiMockProvider implements HttpApiProvider {
   ): Observable<any> {
     return this.httpClient.get(url);
   }
+
   sendCommandNoArg<R>(url: string): Observable<R> {
     return this.sendCommand(url, null, null);
   }
+
   update<U, T, R>(
     url: string,
     commandDto: T,
@@ -43,6 +47,7 @@ export class HttpApiMockProvider implements HttpApiProvider {
   ): Observable<R> {
     return this.get(url, toModelFn);
   }
+
   create<T, U, R>(
     dto: T,
     url: string,
@@ -53,9 +58,11 @@ export class HttpApiMockProvider implements HttpApiProvider {
     >(url, dto);
     return this.execute(observable$, toModelFn)[0];
   }
+
   getNoArg<R>(url: string): Observable<R> {
     return this.httpClient.get<R>(url);
   }
+
   get<U, R>(
     url: string,
     toModelFn: (dto: U) => R,

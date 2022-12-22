@@ -1,5 +1,6 @@
 export class ResponseDto<T> {
-  constructor(private _data: T[], private _status: string) {}
+  constructor(private _data: T[], private _status: string) {
+  }
 
   public get getData(): T[] {
     return this._data;

@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { ProductsComponent } from '@pages/products/products.component';
-import { RouterPaths } from './shared/router/router.model';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {ProductsComponent} from '@pages/products/products.component';
+import {RouterPaths} from './shared/router/router.model';
 
 const routes: Routes = [
   {
     path: "",
     redirectTo: RouterPaths.PRODUCTS,
-    pathMatch:'full'
+    pathMatch: 'full'
   },
   {
     path: RouterPaths.SHOPPINGCART,
@@ -25,4 +25,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

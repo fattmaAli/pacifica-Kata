@@ -44,7 +44,6 @@ constructor(private store:Store) {
     action: AddElementToCart
   ): void {
     let el = ctx.getState().purchasedElements?.find(value => value.productId === action.element.productId)
-    console.log("el ",el)
     if(!el){
       let purchasedElement: PanierElement={
         quantity: action.element.quantity,
@@ -53,7 +52,6 @@ constructor(private store:Store) {
         priceTTC:action.element.priceTtc,
         productId:action.element.productId,
       }
-      console.log(purchasedElement)
       ctx.setState(
         patch({
           purchasedElements: append<PanierElement>([purchasedElement])
@@ -96,15 +94,11 @@ constructor(private store:Store) {
   ): void {
     let el = ctx.getState().purchasedElements.find(value => value.productId === action.productId)
     if(el){
-      console.log(el)
       ctx.setState(
         patch({
           purchasedElements: removeItem<PanierElement>(element => element.productId === el.productId),
         })
       );
-    }
-    else {
-      console.log("no element found!")
     }
   }
   @Action(Totals)
@@ -112,19 +106,20 @@ constructor(private store:Store) {
     ctx: StateContext<PanierStateModel>,
     action: Totals
   ): void {
-      ctx.setState(
-        patch({
-          totalTaxes: ctx.getState().purchasedElements.reduce(
-            (accumulator, currentValue) => accumulator + (currentValue.taxes * currentValue.quantity),
-            0
-          ),
-          totalTTC:ctx.getState().purchasedElements.reduce(
-            (accumulator, currentValue) => accumulator + (currentValue.priceTTC *currentValue.quantity),
-            0
-          ),
-        })
-      );
-
+  if (ctx.getState().purchasedElements) {
+    ctx.setState(
+      patch({
+        totalTaxes: ctx.getState().purchasedElements.reduce(
+          (accumulator, currentValue) => accumulator + (currentValue.taxes * currentValue.quantity),
+          0
+        ),
+        totalTTC: ctx.getState().purchasedElements.reduce(
+          (accumulator, currentValue) => accumulator + (currentValue.priceTTC * currentValue.quantity),
+          0
+        ),
+      })
+    );
+  }
   }
 
 }

@@ -1,16 +1,17 @@
-import { HttpClient, HttpResponse } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Observable, throwError } from "rxjs";
-import { map, pluck } from "rxjs/operators";
-import { ResponseDto } from "../../dto/response.dto";
-import { HttpApiProvider } from "./http-api.provider";
+import {HttpClient, HttpResponse} from "@angular/common/http";
+import {Injectable} from "@angular/core";
+import {Observable, throwError} from "rxjs";
+import {map, pluck} from "rxjs/operators";
+import {ResponseDto} from "../../dto/response.dto";
+import {HttpApiProvider} from "./http-api.provider";
 
 @Injectable()
 export class HttpApiProdProvider implements HttpApiProvider {
   /** "data" property name in response DTO*/
   private DATA_PROPERTY: string = "data";
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {
+  }
 
   sendCommand<T, U, R>(
     url: string,
@@ -29,7 +30,7 @@ export class HttpApiProdProvider implements HttpApiProvider {
     toModelFn?: (response: HttpResponse<Blob>) => R
   ): Observable<any> {
     return this.httpClient
-      .post(url, commandDto, { observe: "response", responseType: "blob" })
+      .post(url, commandDto, {observe: "response", responseType: "blob"})
       .pipe(map((dto) => toModelFn(dto)));
   }
 

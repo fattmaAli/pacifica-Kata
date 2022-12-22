@@ -3,3 +3,54 @@
     height: 100vh !important;
   }
 }
+
+@media (min-width: 1025px) {
+  .h-custom {
+    height: 100vh !important;
+  }
+}
+
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+  font-size: 1rem;
+  line-height: 2.15;
+  padding-left: .75em;
+  padding-right: .75em;
+}
+
+.card-registration .select-arrow {
+  top: 13px;
+}
+
+.bg-grey {
+  background-color: #cce7e9;
+}
+
+.summary {
+  z-index: 100;
+  color: black
+}
+
+.btnToProducts {
+  color: rgb(255, 255, 255);
+  border: 1px solid rgb(226, 26, 122);
+  background-color: rgb(226, 26, 122);
+}
+
+.btnToProducts:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(226, 26, 122)
+}
+
+@media (min-width: 992px) {
+  .card-registration-2 .bg-grey {
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
+}
+
+@media (max-width: 991px) {
+  .card-registration-2 .bg-grey {
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
+}
