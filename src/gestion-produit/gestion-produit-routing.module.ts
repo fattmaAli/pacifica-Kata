@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {ProductsComponent} from '@pages/products/products.component';
 import {RouterPaths} from './shared/router/router.model';
 
 const routes: Routes = [
@@ -18,12 +17,11 @@ const routes: Routes = [
     loadChildren: () => import('@pages/products/product.module').then(m => m.ProductModule)
   },
 
-
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
+export class GestionProduitRoutingModule {
 }

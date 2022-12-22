@@ -3,11 +3,11 @@ import {GetAllProducts} from "@store/products/products.actions";
 import {Store} from "@ngxs/store";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'gestion-produit-root',
+  templateUrl: './gestion-produit.component.html',
+  styleUrls: ['./gestion-produit.component.css']
 })
-export class AppComponent implements OnInit {
+export class GestionProduitComponent implements OnInit {
   title = 'Panier';
 
   constructor(private store: Store) {

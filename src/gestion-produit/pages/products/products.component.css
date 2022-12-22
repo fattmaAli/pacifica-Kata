@@ -1,0 +1,48 @@
+.category {
+  max-height: 40px;
+  margin-bottom: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.bi-funnel-fill {
+  color: #e21a7a
+}
+
+.notification {
+  background-color: #008991;
+}
+
+.badge {
+  padding: 5px;
+  font-size: 11px;
+  background-color: red;
+  color: white;
+}
+
+.textcol {
+  color: white !important;
+  display: inline-block !important;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.currency {
+  font-weight: bold;
+  color: red;
+  font-size: 0.6em;
+  vertical-align: text-top;
+}
+
+.price {
+  font-family: 'DINPro-CondMedium', 'Helvetica Neue', Helvetica;
+  color: #e21a7a !important;
+  font-size: 1em;
+}
+
+@media screen and (max-width: 700px) {
+  .notification {
+    width: 100% !important;
+  }
+}
+

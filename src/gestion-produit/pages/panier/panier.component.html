@@ -14,13 +14,13 @@
                 <div class="p-5">
                   <div class="d-flex justify-content-between align-items-center mb-5">
                     <h1 class="fw-bold mb-0 text-black">Panier</h1>
-                    <h6
-                      class="mb-0 text-muted">{{(purchasedElementsNumber$|async) > 0 ? (purchasedElementsNumber$|async) + "items" : ""}}</h6>
+                    <p
+                      class="mb-0 text-muted">{{(purchasedElementsNumber$|async) > 0 ? (purchasedElementsNumber$|async) + "items" : ""}}</p>
                   </div>
 
                   <hr class="my-4">
 
-                  <h6 class="mb-0 "> {{(purchasedElementsNumber$|async) > 0 ? "" : "Votre panier est vide"}}</h6>
+                  <p class="mb-0 "> {{(purchasedElementsNumber$|async) > 0 ? "" : "Votre panier est vide"}}</p>
 
                   <div *ngFor="let item of purchasedElements$ | async">
                     <app-panier-element [panierElement]="item"></app-panier-element>

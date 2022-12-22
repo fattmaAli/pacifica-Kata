@@ -1,9 +1,8 @@
 <div class="row mx-auto ">
 
-  <div class="col-md-8 col-lg-10" [formGroup]="categoryFilter">
-    <h5 class="card-title p-3" style="font-size:medium;">Filtrer par catégorie <i class="bi bi-funnel-fill"
-                                                                                  aria-hidden="true"></i>
-    </h5>
+  <div class="col-md-8  col-lg-10" [formGroup]="categoryFilter">
+    <p class="card-title  p-3" style="font-size:medium;">Filtrer par catégorie <i class="bi bi-funnel-fill" aria-hidden="true"></i>
+    </p>
     <select class="form-select  category " formControlName="filter" aria-label="Default select example">
       <option [value]="ALL">All</option>
       <option *ngFor="let option of categories$ | async" [value]="option">{{option}}</option>

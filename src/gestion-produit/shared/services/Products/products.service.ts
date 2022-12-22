@@ -14,6 +14,19 @@ import {CategoryType} from "../../enumeration/category-type.enum";
   providedIn: 'root'
 })
 export class ProductsService {
+    
+  getDataSelector : Record< CategoryType, number> = {
+    "Food" : 0,
+    "Medecine" :0,
+    "Books" :10,
+    "Parfum" :20,
+    "Electric" :20
+}
+getProductTaxRate = (product: Product):number => {
+    let rate=this.getDataSelector[product.category]
+    if (product.isImported) rate += 5;
+    return rate
+ }
 
   constructor(
     private productMapper: ProductMapper,
@@ -34,26 +47,4 @@ export class ProductsService {
     );
   }
 
-  getProductTaxRate(product: Product) {
-    let rate = 0;
-    switch (product.category) {
-      case CategoryType.FOOD : {
-        rate = 0;
-        break;
-      }
-      case CategoryType.MEDECINE: {
-        rate = 0;
-        break;
-      }
-      case CategoryType.BOOKS: {
-        rate = 10;
-        break;
-      }
-      default:
-        rate = 20;
-        break;
-    }
-    if (product.isImported) rate += 5;
-    return rate;
-  }
 }

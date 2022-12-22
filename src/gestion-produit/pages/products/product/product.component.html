@@ -1,6 +1,6 @@
-<div class="card card-element-lg mx-auto h-100 d-flex justify-content-around  ">
+<div class="card shadow card-element-lg  h-100 ">
   <div class="card-body">
-    <h5 class=" card-title  mb-2">{{productElement.productName}}</h5>
+    <p class=" card-title  mb-2">{{productElement.productName}}</p>
     <br>
    <span class="card-text">
          <table>
@@ -34,10 +34,13 @@
         <span >Non disponible</span>
       </ng-template>
 
-      <button class="btn shadow  addbtn ms-2" style="border-radius: 50px !important;" type="button"
+      <button class="btn shadow-sm  addbtn ms-2" type="button"
                [disabled]="productElement.quantity==0 || form.invalid" (click)="addToCart(priceTTC)"> Ajouter</button>
     </div>
   </div>
 </div>
+
+
+
 
 

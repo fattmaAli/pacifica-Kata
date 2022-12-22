@@ -19,6 +19,12 @@ export class ProductComponent implements OnInit {
     quantity: new FormControl()
   })
 
+ getDataSelector : Record<OperationType, () => void> = {
+    "ADD" : ()=>this.form.controls.quantity.setValue(this.form.controls.quantity.value + 1),
+    "REMOVE" :()=>this.form.controls.quantity.setValue(this.form.controls.quantity.value - 1)
+ }
+  updateQuantity = (operation: OperationType):void =>this.getDataSelector[operation]()
+ 
   constructor(private productsService: ProductsService) {
   }
 
@@ -32,7 +38,6 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(priceTTC) {
-    console.log()
     if (this.form.valid) {
       this.addElement.emit({
         productId: this.productElement.id,
@@ -41,17 +46,5 @@ export class ProductComponent implements OnInit {
       })
     }
   }
-
-  updateQuantity(operationType) {
-    switch (operationType) {
-      case (OperationType.ADD):
-        this.form.controls.quantity.setValue(this.form.controls.quantity.value + 1);
-        break;
-      case (OperationType.REMOVE):
-        this.form.controls.quantity.setValue(this.form.controls.quantity.value - 1);
-        break;
-      default:
-        break;
-    }
-  }
+ 
 }

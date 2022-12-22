@@ -25,22 +25,22 @@
     ],
     "paths": {
       "@pages/*": [
-        "src/app/pages/*"
+        "src/gestion-produit/pages/*"
       ],
       "@models/*": [
-        "src/app/shared/models/*"
+        "src/gestion-produit/shared/models/*"
       ],
       "@router/*": [
-        "src/app/shared/router/*"
+        "src/gestion-produit/shared/router/*"
       ],
       "@services/*": [
-        "src/app/shared/services/*"
+        "src/gestion-produit/shared/services/*"
       ],
       "@providers/*": [
-        "src/app/shared/providers/*"
+        "src/gestion-produit/shared/providers/*"
       ],
       "@store/*": [
-        "src/app/shared/store/*"
+        "src/gestion-produit/shared/store/*"
       ],
       "@environments/*": [
         "src/environments/*"
