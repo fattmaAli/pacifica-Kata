@@ -35,7 +35,6 @@ import {PanierState} from "@store/panier/panier.sate";
       provide: HTTP_API_PROVIDER_IMPL,
       useClass: environment.httpApiProviderClass,
     }
-
   ],
   bootstrap: [GestionProduitComponent]
 })

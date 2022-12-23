@@ -4,7 +4,7 @@ export class ProductDto {
     private _id: number,
     private _productName: string,
     private _price: number,
-    private _quantity: number,
+    private _quantityInStock: number,
     private _isImported: boolean,
     private _category: string
   ) {
@@ -27,12 +27,12 @@ export class ProductDto {
     this._isImported = value;
   }
 
-  public get quantity(): number {
-    return this._quantity;
+  public get quantityInStock(): number {
+    return this._quantityInStock;
   }
 
-  public set quantity(value: number) {
-    this._quantity = value;
+  public set quantityInStock(value: number) {
+    this._quantityInStock = value;
   }
 
   public get price(): number {

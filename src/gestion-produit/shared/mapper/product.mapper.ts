@@ -14,7 +14,7 @@ export class ProductMapper {
       id: dto.id,
       productName: dto.productName,
       price: dto.price,
-      quantity: dto.quantity,
+      quantity: dto.quantityInStock,
       isImported: dto.isImported,
       category: dto.category
     };

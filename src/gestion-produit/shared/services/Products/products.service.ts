@@ -14,7 +14,7 @@ import {CategoryType} from "../../enumeration/category-type.enum";
   providedIn: 'root'
 })
 export class ProductsService {
-    
+
   getDataSelector : Record< CategoryType, number> = {
     "Food" : 0,
     "Medecine" :0,
@@ -23,8 +23,8 @@ export class ProductsService {
     "Electric" :20
 }
 getProductTaxRate = (product: Product):number => {
-    let rate=this.getDataSelector[product.category]
-    if (product.isImported) rate += 5;
+    let rate=this.getDataSelector[product?.category]
+    if (product?.isImported) rate += 5;
     return rate
  }
 

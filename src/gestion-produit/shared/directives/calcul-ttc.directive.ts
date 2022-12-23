@@ -8,15 +8,15 @@ import {Product} from "@models/product.model";
   providers: [RoundTaxAmountPipe, CurrencyPipe]
 })
 export class CalculTtcDirective implements OnChanges {
-  @Input() appCalculTtc!: { product: Product, tax: number, quantity: number }
+  @Input() appCalculTtc!: { price: number, tax: number }
 
   constructor(private elementRef: ElementRef, private roundTaxPipe: RoundTaxAmountPipe) {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.elementRef.nativeElement.textContent =
-      +(this.appCalculTtc.product.price + this.roundTaxPipe
-        .transform(this.appCalculTtc.product.price * this.appCalculTtc.tax
+      +(this.appCalculTtc.price + this.roundTaxPipe
+        .transform(this.appCalculTtc.price * this.appCalculTtc.tax
           / 100)).toFixed(2)
 
   }

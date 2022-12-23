@@ -23,9 +23,7 @@ export class PanierComponent {
   totalTTC$: Observable<number>;
 
   constructor(private router: Router) {
-
   }
-
   returnToProducts() {
     this.router.navigateByUrl(RouterPaths.PRODUCTS)
   }

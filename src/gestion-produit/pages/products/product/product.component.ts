@@ -24,13 +24,15 @@ export class ProductComponent implements OnInit {
     "REMOVE" :()=>this.form.controls.quantity.setValue(this.form.controls.quantity.value - 1)
  }
   updateQuantity = (operation: OperationType):void =>this.getDataSelector[operation]()
- 
+
   constructor(private productsService: ProductsService) {
   }
 
   ngOnInit() {
     this.form.controls.quantity.setValue(1)
-    this.form.setValidators([Validators.min(1), Validators.max(this.productElement.quantity)])
+    if (this.productElement){
+      this.form.setValidators([Validators.min(1), Validators.max(this.productElement.quantity)])
+    }
   }
 
   getProductTaxRate() {
@@ -46,5 +48,5 @@ export class ProductComponent implements OnInit {
       })
     }
   }
- 
+
 }

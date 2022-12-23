@@ -25,7 +25,7 @@ export class PanierElementComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.allProducts$.pipe(takeUntil(this.destroyer$), tap((list: Product[]) => {
-      this.panierElementProduct = list.find((value: Product) => value.id === this.panierElement.productId)
+      this.panierElementProduct = list?.find((value: Product) => value.id === this.panierElement.productId)
 
     })).subscribe();
   }
@@ -36,7 +36,7 @@ export class PanierElementComponent implements OnInit, OnDestroy {
   }
 
   RemoveElementFromCart() {
-    this.store.dispatch(new RemoveElementFromCart(this.panierElement.productId))
+    this.store.dispatch(new RemoveElementFromCart(this.panierElement?.productId))
     this.store.dispatch(new Totals())
 
   }

@@ -5,7 +5,7 @@
 
       <div class="col-12">
         <button class="btn btn-outline-secondary mb-2 ml-3 pr-3 pl-3 btnToProducts" (click)="returnToProducts()">
-          <i class="bi bi-arrow-left me-2"> continuer vos achats</i>
+          <i class="bi bi-arrow-left me-2">continuer vos achats</i>
         </button>
         <div class="card card-registration card-registration-2" style="border-radius: 15px;">
           <div class="card-body p-0">
@@ -20,7 +20,7 @@
 
                   <hr class="my-4">
 
-                  <p class="mb-0 "> {{(purchasedElementsNumber$|async) > 0 ? "" : "Votre panier est vide"}}</p>
+                  <p class="mb-0 vide">{{(purchasedElementsNumber$|async) > 0 ?"":"Votre panier est vide"}}</p>
 
                   <div *ngFor="let item of purchasedElements$ | async">
                     <app-panier-element [panierElement]="item"></app-panier-element>
@@ -29,19 +29,19 @@
               </div>
               <div class="col-lg-4 bg-grey">
                 <div class=" summary p-5">
-                  <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
+                  <p class="fw-bold fs-3 mb-5 mt-2 pt-1">Summary</p>
                   <hr class="my-4">
 
                   <div class="d-flex justify-content-between mb-4">
-                    <h5 class="text-uppercase">Total Taxes </h5>
-                    <h5>{{((totalTaxes$ | async) ? (totalTaxes$ | async) : 0.00) | currency:'EUR'}} </h5>
+                    <p class="text-uppercase fw-bold taxes">Total Taxes</p>
+                    <p class="fw-bold">{{((totalTaxes$ | async) ? (totalTaxes$ | async) : 0.00) | currency:'EUR'}} </p>
                   </div>
 
                   <hr class="my-4">
 
                   <div class="d-flex justify-content-between mb-5">
-                    <h5 class="text-uppercase">Total TTC</h5>
-                    <h5>{{((totalTTC$ | async) ? (totalTTC$ | async) : 0.00) | currency:'EUR'}}</h5>
+                    <p class="text-uppercase fw-bold ttc ">Total TTC</p>
+                    <p class="fw-bold">{{((totalTTC$ | async) ? (totalTTC$ | async) : 0.00) | currency:'EUR'}}</p>
                   </div>
 
                 </div>
